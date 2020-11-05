@@ -5,7 +5,7 @@ let errorsCounter = 0;
 
 // get CPU data from JSON 
 function getCpuData () {
-    fetch('http://192.168.174.130/CPUMonitor/poll_cpu_usage.php')
+    fetch('poll_cpu_usage.php')
     .then(response => {
         let data = response.json();
         return data;
