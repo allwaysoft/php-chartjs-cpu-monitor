@@ -73,11 +73,17 @@ function formatDate(time){
 
 // update myChart
 function addData(data) {
+    if (myChart.data.labels.length>10){
+    	myChart.data.labels.shift();		
+    }
     myChart.data.labels.push(formatDate(new Date().getTime()));
     myChart.data.datasets.forEach((dataset) => {
         if(data === 0) {
             dataset.data.push(dataset.data[dataset.data.length - 1]);
         } else {
+        		if (dataset.data.length>10){
+        			dataset.data.shift();         	
+            }
             dataset.data.push(data);
         };
     });
